@@ -55,7 +55,7 @@ get_header();
 
 
         /* The 2nd Query (without global var) */
-        /*$query2 = new WP_Query( $args2 );
+        $query2 = new WP_Query( $args2 );
 
         // The 2nd Loop
         while ( $query2->have_posts() ) {
@@ -65,7 +65,7 @@ get_header();
 
         // Restore original Post Data
         wp_reset_postdata();
-*/
+
         ?>
 
 		</main><!-- #main -->
