@@ -11,3 +11,8 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  underscorechild
 */
+
+span img{
+    width: 150px !important;
+    height: 150px !important;
+}

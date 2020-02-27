@@ -67,7 +67,7 @@ get_header();
         while ( $query2->have_posts() ) {
             $query2->the_post();
             echo '<h4>' . get_the_title() . '</h4>';
-            echo get_the_post_thumbnail();
+            echo '<span>' .get_the_post_thumbnail().'</span>';
         }
 
         // Restore original Post Data
