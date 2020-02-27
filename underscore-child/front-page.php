@@ -55,12 +55,18 @@ get_header();
 
 
         /* The 2nd Query (without global var) */
+        $args2 = array(
+            "posts_per_page" => 3,
+            "category_name" => "évènements",
+            'orderby' => 'title',
+            'order'   => 'DESC'
+        );
         $query2 = new WP_Query( $args2 );
 
         // The 2nd Loop
         while ( $query2->have_posts() ) {
             $query2->the_post();
-            echo '<li>' . get_the_title( $query2->post->ID ) . '</li>';
+            echo '<h4>' . get_the_title() . '</h4>';
         }
 
         // Restore original Post Data
