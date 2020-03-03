@@ -28,11 +28,11 @@ get_header();
 
 		endwhile; // End of the loop.
 
-
+        echo '<h1>Conférences</h1>';
         // The Query
         $args = array(
+            "category_name" => "conferences",
             "posts_per_page" => 3,
-            "category_name" => "nouvelles",
             'orderby' => 'title',
             'order'   => 'DESC'
         );
@@ -41,7 +41,8 @@ get_header();
         // The Loop
         while ( $query1->have_posts() ) {
             $query1->the_post();
-            echo '<h4>' . get_the_title() . '</h4>';
+            echo '<span>' .get_the_post_thumbnail().'</span>';
+            echo '<h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
             echo '<p>'.get_the_excerpt().'</p>';
         }
 
@@ -53,11 +54,11 @@ get_header();
          */
         wp_reset_postdata();
 
-
-        /* The 2nd Query (without global var) */
+        echo '<h1>Nouvelles</h1>';
+        // The 2nd Query
         $args2 = array(
             "posts_per_page" => 3,
-            "category_name" => "évènements",
+            "category_name" => "nouvelles",
             'orderby' => 'title',
             'order'   => 'DESC'
         );
@@ -66,8 +67,32 @@ get_header();
         // The 2nd Loop
         while ( $query2->have_posts() ) {
             $query2->the_post();
-            echo '<h4>' . get_the_title() . '</h4>';
             echo '<span>' .get_the_post_thumbnail().'</span>';
+            echo '<h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
+            echo '<p>'.get_the_excerpt().'</p>';
+        }
+
+        /* Restore original Post Data 
+         * NB: Because we are using new WP_Query we aren't stomping on the 
+         * original $wp_query and it does not need to be reset with 
+         * wp_reset_query(). We just need to set the post data back up with
+         * wp_reset_postdata().
+         */
+        wp_reset_postdata();
+
+        echo '<h1>Évènements</h1>';
+        /* The 3 Query (without global var) */
+        $args3 = array(
+            "posts_per_page" => 4,
+            "category_name" => "évènements",
+        );
+        $query3 = new WP_Query( $args3 );
+
+        // The 3nd Loop
+        while ( $query3->have_posts() ) {
+            $query3->the_post();
+            echo '<span>' .get_the_post_thumbnail().'</span>';
+            echo '<h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>'; 
         }
 
         // Restore original Post Data
