@@ -1,0 +1,15 @@
+.articleGauche{
+    display: flex;
+    margin-left: 3em;
+    div{
+        margin-left: 2em;
+    }
+    span{
+        img{
+            max-width: 200px;
+            max-height: 200px;
+            min-width: 200px;
+            min-height: 200px;
+        }
+    }
+}

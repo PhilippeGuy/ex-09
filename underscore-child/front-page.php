@@ -41,9 +41,9 @@ get_header();
         // The Loop
         while ( $query1->have_posts() ) {
             $query1->the_post();
-            echo '<span>' .get_the_post_thumbnail().'</span>';
-            echo '<h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
-            echo '<p>'.get_the_excerpt().'</p>';
+            echo '<div class="articleGauche"><span>' .get_the_post_thumbnail().'</span>';
+            echo '<div><h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
+            echo '<p>'.get_the_excerpt().'</p></div></div>';
         }
 
         /* Restore original Post Data 
@@ -67,9 +67,9 @@ get_header();
         // The 2nd Loop
         while ( $query2->have_posts() ) {
             $query2->the_post();
-            echo '<span>' .get_the_post_thumbnail().'</span>';
-            echo '<h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
-            echo '<p>'.get_the_excerpt().'</p>';
+            echo '<div class="articleGauche"><span>' .get_the_post_thumbnail().'</span>';
+            echo '<div><h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
+            echo '<p>'.get_the_excerpt().'</p></div></div>';
         }
 
         /* Restore original Post Data 
