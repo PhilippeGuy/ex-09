@@ -126,6 +126,27 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   min-height: 200px;
 }
 
+#evenements {
+  width: 95%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[31];
+      grid-template-rows: repeat(31, 1fr);
+}
+
+.evenement {
+  margin: 0;
+  padding: 20px 0;
+  -ms-grid-column-align: stretch;
+      justify-self: stretch;
+  border: 1px solid black;
+}
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/

@@ -42,7 +42,7 @@ get_header();
         while ( $query1->have_posts() ) {
             $query1->the_post();
             echo '<div class="articleGauche"><span>' .get_the_post_thumbnail().'</span>';
-            echo '<div><h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
+            echo '<div><h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date('d / m / Y'). '</a></h4>';
             echo '<p>'.get_the_excerpt().'</p></div></div>';
         }
 
@@ -80,25 +80,6 @@ get_header();
          * wp_reset_postdata().
          */
         wp_reset_postdata();
-
-        echo '<h1>Évènements</h1>';
-        /* The 3 Query (without global var) */
-        $args3 = array(
-            "posts_per_page" => 4,
-            "category_name" => "évènements",
-        );
-        $query3 = new WP_Query( $args3 );
-
-        // The 3nd Loop
-        while ( $query3->have_posts() ) {
-            $query3->the_post();
-            echo '<span>' .get_the_post_thumbnail().'</span>';
-            echo '<h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>'; 
-        }
-
-        // Restore original Post Data
-        wp_reset_postdata();
-
         ?>
 
 		</main><!-- #main -->

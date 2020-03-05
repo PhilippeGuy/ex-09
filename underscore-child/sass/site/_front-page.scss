@@ -34,3 +34,19 @@
         }
     }
 }
+
+#evenements{
+
+    width: 95%;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(31,1fr);
+}
+
+.evenement{
+    margin: 0;
+    padding: 20px 0;
+    justify-self: stretch;
+    border: 1px solid black;
+}
