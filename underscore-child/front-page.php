@@ -32,7 +32,7 @@ get_header();
         // The Query
         $args = array(
             "category_name" => "conferences",
-            "posts_per_page" => 3,
+            "posts_per_page" => 4,
             'orderby' => 'title',
             'order'   => 'DESC'
         );
@@ -54,10 +54,11 @@ get_header();
          */
         wp_reset_postdata();
 
-        echo '<h1>Nouvelles</h1>';
+        echo '<h1>Nouvelles</h1>
+              <div class="nouvelles">';
         // The 2nd Query
         $args2 = array(
-            "posts_per_page" => 3,
+            "posts_per_page" => 4,
             "category_name" => "nouvelles",
             'orderby' => 'title',
             'order'   => 'DESC'
@@ -67,10 +68,10 @@ get_header();
         // The 2nd Loop
         while ( $query2->have_posts() ) {
             $query2->the_post();
-            echo '<div class="articleGauche"><span>' .get_the_post_thumbnail().'</span>';
-            echo '<div><h4><a href="'.get_permalink().'">' . get_the_title() .' '.get_the_date(). '</a></h4>';
-            echo '<p>'.get_the_excerpt().'</p></div></div>';
+            echo '<div class="articleCentre"><h4><a href="'.get_permalink().'">' . get_the_title() .'</a></h4>';
+            echo '<span>' .get_the_post_thumbnail().'</span></div>';
         }
+        echo '</div>';
 
         /* Restore original Post Data 
          * NB: Because we are using new WP_Query we aren't stomping on the 
