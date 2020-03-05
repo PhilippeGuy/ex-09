@@ -35,7 +35,7 @@ get_header();
                 $m%=3+1;
                 echo '<p class="evenement" style="grid-area: '. $j .' / '. $m .' / '. ($j+1) .' / '. ($m+1) .'">'.
                         '<b><a href="'.get_permalink().'">' . get_the_title() .'</a></b>'.
-                        get_the_date('d m Y').'</p>';
+                        get_the_date('d m Y').' '. $j .' / '. $m .' / '. ($j+1) .' / '. ($m+1) .'</p>';
             }
         
             echo '</div>';
